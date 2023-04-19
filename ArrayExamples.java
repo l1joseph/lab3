@@ -38,6 +38,21 @@ public class ArrayExamples {
     return sum / (arr.length - 1);
   }
 
+  /** fixed version of averageWithoutLowest
+   * static double averageWithoutLowest(double[] arr) {
+    if(arr.length < 2) { return 0.0; }
+    double lowest = arr[0];
+    for(double num: arr) {
+      if(num < lowest) { lowest = num; }
+    }
+    double sum = 0;
+    for(double num: arr) {
+      sum += num;
+    }
+    sum -= lowest;
+    return sum / (arr.length - 1);
+  }
+   */
 
 }
 

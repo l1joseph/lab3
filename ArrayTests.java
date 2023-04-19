@@ -47,5 +47,10 @@ public class ArrayTests {
       double[] input4 = {};
       double output4 = ArrayExamples.averageWithoutLowest(input4);
       assertEquals(0.0, output4, 0.0001);
+      
+      double[] input5 = {1, 1, 2};
+      double output5 = ArrayExamples.averageWithoutLowest(input5);
+      assertEquals(1.5, output5, 0.0001);
+  
   }
 }
