@@ -4,19 +4,19 @@ rm -rf student-submission
 git clone $1 student-submission
 echo 'Finished cloning'
 
-if [[ -f student-submission/ListExamples.java ]]
+if [[ -f student-submission/ArrayExamples.java ]]
 then
-  echo 'ListExamples.java found'
+  echo 'ArrayExamples.java found'
 else
-  echo 'ListExamples.java not found'
-  echo 'Score: 0/4'
+  echo 'ArrayExamples.java not found'
+  echo 'Score: 0/5'
 fi
 
-cp student-submission/ListExamples.java ./
+cp student-submission/ArrayExamples.java ./
 
 javac -cp $CPATH *.java
 
-java -cp $CPATH org.junit.runner.JUnitCore TestListExamples > junit-output.txt
+java -cp $CPATH org.junit.runner.JUnitCore ArrayTests > junit-output.txt
 
 # The strategy used here relies on the last few lines of JUnit output, which
 # looks like:
@@ -31,7 +31,7 @@ FAILURES=`grep -c FAILURES!!! junit-output.txt`
 if [[ $FAILURES -eq 0 ]]
 then
   echo 'All tests passed'
-  echo '4/4'
+  echo '5/5'
 else
   # The ${VAR:N:M} syntax gets a substring of length M starting at index N
   # Note that since this is a precise character count into the "Tests run:..."
@@ -49,7 +49,7 @@ else
   cat junit-output.txt
   echo ""
   echo "--------------"
-  echo "| Score: $COUNT/4 |"
+  echo "| Score: $COUNT/5 |"
   echo "--------------"
   echo ""
 fi
